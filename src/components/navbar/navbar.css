@@ -1,0 +1,21 @@
+.nav-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: darkblue;
+    padding: 10px 30px;
+    /* position: fixed; */
+    /* min-width: 96%; */
+}
+.inner-nav-con1{
+    display: flex;
+    align-items: center;
+    color: white;
+}
+.inner-nav-con1:first-child{
+    font-size: 20px;
+}
+.inner-nav-con2{
+    display: flex;
+    justify-content: space-between;
+}
