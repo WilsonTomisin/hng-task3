@@ -1,6 +1,7 @@
 import React from 'react'
 import './Gallery.css'
-import {collection, getDoc} from 'firebase/firestore';
+import {collection, getDocs, doc} from 'firebase/firestore';
+import { auth } from '../../firebase';
 import { db } from '../../firebase';
 import { Button, Box, Typography, Grid} from '@mui/material';
 import { imgGallery } from '../../constants/constants';
@@ -11,10 +12,18 @@ export const Gallery = () => {
     const [gallery, setGallery] = React.useState(imgGallery)
 
     const usersCollectionRef = collection(db,'users')
+    console.log(usersCollectionRef.id);
 
     React.useEffect(()=>{
+      
         const getUser = async()=>{
-
+          const user_id = auth.currentUser.uid
+          const data = await getDocs(usersCollectionRef)
+          // data.docs.
+          setuser(data.docs.map((doc)=>(
+              {...doc.data(), id: doc.id}
+          )))
+          // console.log(user_id);
         }
         getUser()
     },[])
@@ -56,8 +65,10 @@ export const Gallery = () => {
                         {(provided)=>(
                           <div {...provided.droppableProps} ref={provided.innerRef} className='grid-container'>
                                 {gallery.map((item,index)=>{
+                              
+                                  const id = index.toString()
                                   return(
-                                  <Draggable key={index} draggableId={index.toString()} index={index}>
+                                  <Draggable  draggableId={id} index={index}>
                                     {(provided)=>(
                                         <div  
                                         className='grid-item'

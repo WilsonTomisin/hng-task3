@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
+import { Link } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
@@ -49,15 +49,15 @@ export const Signup=()=> {
   const handleSubmit = async(event) => {
     event.preventDefault();
     try {
-      // const user = await createUserWithEmailAndPassword(auth,email,password,lastName,firstName)
+      const RegisterUser = await createUserWithEmailAndPassword(auth,email,password)
       // console.log(user)
-       const user = await addDoc(usersCollectionRef,{
-        firstname:firstName,
-        lastname:lastName,
-        email: email,
-        password: password
-      })
-      if (user) {
+      //  const user = await addDoc(usersCollectionRef,{
+      //   firstname:firstName,
+      //   lastname:lastName,
+      //   email: email,
+      //   password: password
+      // })
+      if (RegisterUser) {
         navigate('/gallery')
       } else{
         alert('invalid input')
@@ -149,7 +149,7 @@ export const Signup=()=> {
                   </Button>
                   <Grid container justifyContent="flex-end">
                     <Grid item>
-                      <Link href="#" variant="body2">
+                      <Link to={'/login'}>
                         Already have an account? Sign in
                       </Link>
                     </Grid>
