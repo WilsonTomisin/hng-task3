@@ -19,3 +19,13 @@
     display: flex;
     justify-content: space-between;
 }
+
+@media screen and (max-width: 450px) {
+    .inner-nav-con2{
+        flex-direction: column;
+    }
+    .inner-nav-con2 .login-btn{
+        margin-bottom: 12px;
+    }
+    
+}

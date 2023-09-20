@@ -55,3 +55,29 @@
     margin: 0px 10px;
     
 }
+@media screen and (max-width:770px) {
+    .main1{
+        flex-direction: column-reverse;
+        text-align: center;
+        padding-top: 0px;
+    }
+    .container-1 {
+        padding: 0px;
+    }
+    .container-2{
+        width: 100vw;
+    }
+    .container-2 img{
+        width: 100%;
+        height: 200px;
+    }
+    .card-container{
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .card-container div{
+        width: auto;
+        margin: 20px 10px;
+    }
+}

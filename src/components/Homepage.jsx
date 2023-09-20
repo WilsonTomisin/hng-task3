@@ -5,7 +5,10 @@ import React from 'react'
 
 const Homepage = () => {
   return (
-    <div>
+    <div style={{
+      height:'100vh',
+      width: '100%'
+    }}>
         <Navbar/>
         <Main/>
         <Footer/>

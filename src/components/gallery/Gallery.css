@@ -28,3 +28,25 @@
     padding: 15px 10px;
 
 }
+.date-btn{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media screen and (max-width:770px){
+    .grid-container{
+        grid-template-columns: 300px 300px ;
+    }
+
+
+}
+
+@media screen and (max-width: 450px){
+    .grid-container{
+        grid-template-columns: 300px;
+    }
+    .item-img{
+        width: 300px;
+    }
+}

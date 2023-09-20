@@ -18,3 +18,14 @@ footer{
 .footer-con2{
     font-size: 19px;
 }
+
+@media screen and (max-width: 450px) {
+    footer{
+        flex-direction: column;
+        
+    }
+    .footer-con1{
+        margin-bottom: 20px;
+    }
+    
+}

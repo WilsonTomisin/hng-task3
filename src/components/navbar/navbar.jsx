@@ -18,7 +18,7 @@ export const Navbar = () => {
                   color: 'darkblue',
                   fontWeight: 'bold',
                   marginX: '15px'
-                }}>Login</Button>
+                }} className='login-btn'>Login</Button>
             </Link>
             <Link to={'/signup'}>
                 <Button variant='outlined'

@@ -15,14 +15,14 @@ export const Gallery = () => {
     const navigate =useNavigate()
 
     const usersCollectionRef = collection(db,'users')
-    console.log(usersCollectionRef.id);
+    // console.log(usersCollectionRef.id);
 
     React.useEffect(()=>{
       
         const getUser = async()=>{
           const user_id = auth.currentUser.uid
-          const data = await getDocs(usersCollectionRef)
-          // data.docs.
+          const data = await getDocs(usersCollectionRef,user_id)
+          console.log(data)
           setuser(data.docs.map((doc)=>(
               {...doc.data(), id: doc.id}
           )))
@@ -46,12 +46,15 @@ export const Gallery = () => {
       navigate('/')
     })
   }
+  const currentDate = new Date()
+   const newDate = currentDate.toDateString()
   return (
     <div>
         <Typography variant='h2'
         sx={{
           textAlign:'center',
-          padding:'20px 0px'
+          padding:'20px 0px',
+          fontWeight:'700'
         }}>
           Photo gallery
         </Typography>
@@ -60,13 +63,13 @@ export const Gallery = () => {
               <Typography variant=' h4'>username</Typography>
           </Typography>
 
-          <div>
-            <span>Date:12-09-2023</span>
+          <div className='date-btn'>
+            <span>Date:{newDate}</span>
             <Button onClick={handlelogout} variant='contained'>logout</Button>
           </div>
         </div>
         <div className='second-gallerycon'>
-          <h3>Drag and drop to reorder images</h3>
+          <h3 style={{fontSize:'27px'}}>Drag and drop to reorder images</h3>
             
                   <DragDropContext onDragEnd={handleDrag}>
                       <Droppable droppableId='ROOT' type='group'>
