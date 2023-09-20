@@ -1,0 +1,30 @@
+.first-gallerycon{
+    padding: 10px 40px;
+
+}
+.second-gallerycon{
+    padding:  10px 40px;
+}
+
+.item-img{
+    width: 300px;
+    height: 200px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+.grid-container{
+    display: grid;
+    grid-template-columns: 300px 300px 300px;
+    column-gap: 20px;
+    row-gap: 50px;
+    justify-content: space-evenly;
+}
+.grid-item{
+    background-color: burlywood;
+    border-radius: 12px;
+    
+}
+.grid-item .grid-item-innercon{
+    padding: 15px 10px;
+
+}
