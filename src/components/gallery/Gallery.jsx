@@ -6,10 +6,13 @@ import { db } from '../../firebase';
 import { Button, Box, Typography, Grid} from '@mui/material';
 import { imgGallery } from '../../constants/constants';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
+import { useNavigate } from 'react-router-dom';
 
 export const Gallery = () => {
     const [user, setuser] = React.useState([])
     const [gallery, setGallery] = React.useState(imgGallery)
+    
+    const navigate =useNavigate()
 
     const usersCollectionRef = collection(db,'users')
     console.log(usersCollectionRef.id);
@@ -38,6 +41,11 @@ export const Gallery = () => {
       
       setGallery(ReorderedItems)
   }
+  const handlelogout=()=>{
+    auth.signOut().then(()=>{
+      navigate('/')
+    })
+  }
   return (
     <div>
         <Typography variant='h2'
@@ -54,7 +62,7 @@ export const Gallery = () => {
 
           <div>
             <span>Date:12-09-2023</span>
-            <Button>logout</Button>
+            <Button onClick={handlelogout} variant='contained'>logout</Button>
           </div>
         </div>
         <div className='second-gallerycon'>
