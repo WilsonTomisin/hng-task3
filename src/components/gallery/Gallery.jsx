@@ -11,11 +11,12 @@ import { TbPhotoFilled} from 'react-icons/tb'
 import { FaSearch } from 'react-icons/fa'
 
 export const Gallery = () => {
-    const [user, setuser] = React.useState([])
+  
     const [gallery, setGallery] = React.useState([])
     const [ searchTerm, setSearchTerm]= React.useState('')
     
     const navigate =useNavigate()
+    const user_id = auth.currentUser.uid
 
     const usersCollectionRef = collection(db,'users')
     // console.log(usersCollectionRef.id);
@@ -24,18 +25,10 @@ export const Gallery = () => {
         setTimeout(()=>{
           setGallery(imgGallery)
         },3000)
+        
+      
 
-
-        const getUser = async()=>{
-          const user_id = auth.currentUser.uid
-          const data = await getDocs(usersCollectionRef,user_id)
-          console.log(data)
-          setuser(data.docs.map((doc)=>(
-              {...doc.data(), id: doc.id}
-          )))
-          // console.log(user_id);
-        }
-        getUser()
+        
     },[])
     const handleDrag=(results)=>{
       const {source, destination} = results
